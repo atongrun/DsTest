@@ -20,3 +20,5 @@ void destroy_sl(SL* sl);
 void push_sl_tail(SL* sl, sl_datatype x);
 void print_sl(SL* sl);
 void pop_sl(SL* sl);
+void push_sl_head(SL* sl,sl_datatype x);
+void modify_sl(SL* sl, int pos, sl_datatype x);
