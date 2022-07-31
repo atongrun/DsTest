@@ -22,3 +22,8 @@ void print_sl(SL* sl);
 void pop_sl(SL* sl);
 void push_sl_head(SL* sl,sl_datatype x);
 void modify_sl(SL* sl, int pos, sl_datatype x);
+void insert_sl(SL* sl, int pos, sl_datatype x);
+//找到返回下标，找不到返回-1
+int search_sl(SL* sl, sl_datatype x);
+//删除pos位置元素
+void delete_sl(SL* sl, int pos);

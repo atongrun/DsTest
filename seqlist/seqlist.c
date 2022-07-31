@@ -83,3 +83,45 @@ void modify_sl(SL* sl, int pos, sl_datatype x)
     assert(pos>=0&&pos<sl->size);
     sl->a[pos]=x;
 }
+
+
+void insert_sl(SL* sl, int pos, sl_datatype x)
+{
+    //pos 位置插入，剩下往后移动
+    assert(sl);
+    assert(pos>=0&&pos<=sl->size);
+    isfull(sl);
+    int i=0;
+    for(i=sl->size;i>pos;i--)
+    {
+        sl->a[i]=sl->a[i-1];
+    }
+    sl->a[pos]=x;
+    sl->size++;
+}
+
+
+int search_sl(SL* sl, sl_datatype x)
+{
+    assert(sl);
+    int i=0;
+    for(i=0;i<sl->size;i++)
+    {
+        if(sl->a[i]==x)
+            return i;
+    }
+    return -1;
+}
+
+
+void delete_sl(SL* sl, int pos)
+{
+    assert(sl);
+    assert(pos>=0&&pos<sl->size);
+    int i=0;
+    for(i=pos;i<sl->size-1;i++)
+    {
+        sl->a[i]=sl->a[i+1];
+    }
+    sl->size--;
+}
