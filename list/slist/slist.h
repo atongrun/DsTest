@@ -14,7 +14,10 @@ typedef struct SList
 }L;
 
 
-void slist_init(L** ppl);
+void slist_init(L* pl);
+void slist_destroy(L* pl);
+void slist_push_tail(L** pl, sl_datatype x);
+void slist_print(L* pl);
 
 
 
