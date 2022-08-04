@@ -31,7 +31,7 @@ L* create_newnode(sl_datatype x)
     return newnode;
 }
 
-void slist_push_tail(L** pl, sl_datatype x)
+void slist_push_back(L** pl, sl_datatype x)
 {
     assert(pl);
     if(*pl==NULL)
@@ -59,4 +59,35 @@ void slist_print(L* pl)
         cur=cur->next;
     }
     printf("\n");
+}
+
+
+void slist_push_front(L**pl, sl_datatype x)
+{
+    assert(pl);
+    if(*pl==NULL)
+    {
+        *pl=create_newnode(x);
+    }
+    else
+    {
+        L* newhead=create_newnode(x);
+        newhead->next=*pl;
+        *pl=newhead;
+    }
+
+}
+
+void slist_pop_back(L** pl)
+{
+    assert(pl);
+    assert(*pl);
+    L* cur=*pl;
+    while(cur->next)
+    {
+        cur=cur->next;
+    }
+    free(cur);
+    cur=NULL;
+
 }

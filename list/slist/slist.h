@@ -16,8 +16,9 @@ typedef struct SList
 
 void slist_init(L* pl);
 void slist_destroy(L* pl);
-void slist_push_tail(L** pl, sl_datatype x);
+void slist_push_back(L** pl, sl_datatype x);
 void slist_print(L* pl);
-
+void slist_push_front(L** pl, sl_datatype x);
+void slist_pop_back(L** pl);
 
 
