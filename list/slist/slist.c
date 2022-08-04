@@ -51,14 +51,20 @@ void slist_push_back(L** pl, sl_datatype x)
 
 void slist_print(L* pl)
 {
-    assert(pl);
-    L* cur=pl;
-    while(cur)
+    if(pl==NULL)
     {
-        printf("%d ",cur->data);
-        cur=cur->next;
+        printf("NULL\n");
     }
-    printf("\n");
+    else
+    {
+        L* cur=pl;
+        while(cur)
+        {
+           printf("%d ",cur->data);
+           cur=cur->next;
+        }
+         printf("\n");
+    }
 }
 
 
@@ -82,12 +88,61 @@ void slist_pop_back(L** pl)
 {
     assert(pl);
     assert(*pl);
+    if((*pl)->next==NULL)
+    {
+        free(*pl);
+        *pl=NULL;
+        return;
+    }
+
     L* cur=*pl;
-    while(cur->next)
+    while(cur->next->next)
     {
         cur=cur->next;
     }
-    free(cur);
-    cur=NULL;
+    free(cur->next);
+    cur->next=NULL;
 
+}
+
+
+
+void slist_pop_front(L** pl)
+{
+    assert(pl&&*pl);
+    L* next=(*pl)->next;
+    free(*pl);
+    *pl=next;
+}
+
+
+L* slist_search(L* pl, sl_datatype x)
+{
+    //不存在返回NULL,存在返回
+    assert(pl);
+    L* cur=pl;
+    while(cur)
+    {
+        if(cur->data==x)
+        {
+            return cur;
+        }
+        cur=cur->next;
+    }
+    return NULL;
+}
+
+
+void slist_insert(L** pl, L* pos, sl_datatype x)
+{
+    assert(pl);
+    //如果链表为空，pos传入NULL，创建节点x
+    if(*pl==NULL)
+    {
+        
+    }
+    else
+    {
+
+    }
 }

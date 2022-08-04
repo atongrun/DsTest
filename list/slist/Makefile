@@ -1,9 +1,9 @@
 test:test.o slist.o
-	gcc -o test test.o slist.o -g
+	gcc -o test test.o slist.o
 test.o:test.c
-	gcc -c test.c -o test.o -g
-seqlist.o:slist.c
-	gcc -c slist.c -o slist.o -g
+	gcc -c -g test.c -o test.o
+slist.o:slist.c
+	gcc -c -g slist.c -o slist.o
 .PHONY:clean
 clean:
 	rm -f test test.o slist.o
