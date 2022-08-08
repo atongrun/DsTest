@@ -2,7 +2,7 @@ test:test.o hdlist.o
 	gcc -o test test.o hdlist.o
 test.o:test.c
 	gcc -c -g test.c -o test.o
-slist.o:slist.c
+hdlist.o:hdlist.c
 	gcc -c -g hdlist.c -o hdlist.o
 .PHONY:clean
 clean:

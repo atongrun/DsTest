@@ -13,4 +13,8 @@ typedef struct HDList
     hdl_datatype data;
 }HDL;
 
+
+HDL* hdl_init();
+HDL* create_newnode(hdl_datatype x);
 void hdl_push_back(HDL* pl, hdl_datatype x);
+void hdl_print(HDL* pl);
