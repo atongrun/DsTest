@@ -49,3 +49,14 @@ void hdl_print(HDL* pl)
     }
     printf("\n");
 }
+
+
+void hdl_push_front(HDL* pl, hdl_datatype x)
+{
+    assert(pl);
+    HDL* newnode = create_newnode(x);
+    newnode->next=pl->next;
+    pl->next->prev=newnode;
+    newnode->prev=pl;
+    pl->next=newnode;
+}
